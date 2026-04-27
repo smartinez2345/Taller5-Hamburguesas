@@ -96,6 +96,18 @@ public class Restaurante
      * @throws NoHayPedidoEnCursoException Lanza esta excepción si no hay un pedido en curso
      * @throws FileNotFoundException Lanza esta excepción si hay problemas guardando el archivo
      */
+    /**
+     * Agrega un producto al pedido en curso
+     * @param nuevoProducto El producto a agregar
+     * @throws NoHayPedidoEnCursoException si no hay pedido en curso
+     */
+    public void agregarProducto( Producto nuevoProducto ) throws NoHayPedidoEnCursoException
+    {
+        if( pedidoEnCurso == null )
+            throw new NoHayPedidoEnCursoException( );
+        pedidoEnCurso.agregarProducto( nuevoProducto );
+    }
+    
     public void cerrarYGuardarPedido( ) throws NoHayPedidoEnCursoException, IOException
     {
         if( pedidoEnCurso == null )
